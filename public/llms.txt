@@ -1,0 +1,47 @@
+# CleanRead-402 — Universal x402, A2A & Remote MCP Clean Web Reader on Base L2
+
+> Universal x402, A2A & Remote MCP Clean Web Reader for AI Agents ($0.05 USDC, Zero API Keys): Converts any URL into token-compressed, LLM-ready Markdown and structured links for Claude, Cursor, LangChain, ElizaOS, and Coinbase AgentKit.
+
+## Quick Facts & Settlement (Stateless Base Mainnet x402)
+- **Live Base URL**: https://cleanread-402.vercel.app
+- **Remote MCP Endpoint (2024-11-05)**: https://cleanread-402.vercel.app/mcp
+- **Google A2A Endpoint**: https://cleanread-402.vercel.app/a2a
+- **REST Micro-API**: `GET https://cleanread-402.vercel.app/api/v1/extract?url=<TARGET_URL>`
+- **Free Schema & Preview Mode**: `GET https://cleanread-402.vercel.app/api/v1/extract?url=<TARGET_URL>&demo=true` (600-char Markdown preview + token savings stats, edge-cached 60s)
+- **Price**: `$0.05 USDC` per call (`50000` base units, 6 decimals)
+- **Network**: `base` (Base Mainnet, `chainId: 8453`)
+- **USDC Contract**: `0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913`
+- **PayTo Wallet**: `0x6137ED1A93c8CFF1a6C3112A14bE04883f58E5F7`
+- **Payment Header**: `X-Payment-Tx: <0x_base_tx_hash>` (verified statelessly on `https://mainnet.base.org`: `status === "0x1"`, USDC `Transfer` >= `50000` units to `payTo`, block timestamp <= `600s` old)
+
+## Response Schema (`200 OK`)
+```json
+{
+  "title": "Introduction - Model Context Protocol",
+  "url": "https://modelcontextprotocol.io/introduction",
+  "cleanMarkdown": "# Introduction\n\n...",
+  "originalBytes": 84520,
+  "compressedBytes": 4210,
+  "estimatedTokensSaved": 20077,
+  "compressionRatioPct": 95.02,
+  "linksCount": 24,
+  "links": [{ "text": "Quickstart", "url": "https://modelcontextprotocol.io/quickstart" }]
+}
+```
+
+## 4-Line Remote MCP Config (Claude Desktop / Cursor / Windsurf)
+```json
+{
+  "mcpServers": {
+    "cleanread-402": { "url": "https://cleanread-402.vercel.app/mcp" }
+  }
+}
+```
+
+## Discovery Manifests
+- x402 Manifest: https://cleanread-402.vercel.app/.well-known/x402.json
+- MCP Manifest: https://cleanread-402.vercel.app/.well-known/mcp.json
+- Google A2A Agent Card: https://cleanread-402.vercel.app/.well-known/agent.json
+- OpenAPI 3.1 Spec: https://cleanread-402.vercel.app/openapi.json
+- Health & Live Base RPC Telemetry: https://cleanread-402.vercel.app/api/v1/health
+- GitHub Repository: https://github.com/meer9374-a11y/cleanread-402
