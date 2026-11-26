@@ -1,0 +1,46 @@
+{
+  "x402Version": 1,
+  "name": "CleanRead-402",
+  "description": "Universal x402, A2A & Remote MCP Clean Web Reader for AI Agents ($0.05 USDC, Zero API Keys): Converts any URL into token-compressed, LLM-ready Markdown and structured links.",
+  "network": "base",
+  "chainId": 8453,
+  "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+  "payTo": "0x6137ED1A93c8CFF1a6C3112A14bE04883f58E5F7",
+  "paymentHeader": "X-Payment-Tx",
+  "maxAmountRequired": "50000",
+  "priceUsdc": "0.05",
+  "antiReplayWindowSeconds": 600,
+  "mcpEndpoint": "https://cleanread-402.vercel.app/mcp",
+  "a2aAgentCard": "https://cleanread-402.vercel.app/.well-known/agent.json",
+  "healthEndpoint": "https://cleanread-402.vercel.app/api/v1/health",
+  "endpoints": [
+    {
+      "path": "/api/v1/extract",
+      "url": "https://cleanread-402.vercel.app/api/v1/extract",
+      "method": "GET",
+      "priceUsdc": "0.05",
+      "maxAmountRequired": "50000",
+      "demoUrl": "https://cleanread-402.vercel.app/api/v1/extract?url=https://modelcontextprotocol.io/introduction&demo=true",
+      "description": "Convert any webpage URL into clean, token-compressed, LLM-ready Markdown and structured links ($0.05 USDC on Base)."
+    }
+  ],
+  "accepts": [
+    {
+      "scheme": "exact",
+      "network": "base",
+      "maxAmountRequired": "50000",
+      "resource": "https://cleanread-402.vercel.app/api/v1/extract",
+      "description": "CleanRead-402 URL-to-Markdown & Token-Compression Engine ($0.05 USDC per call on Base Mainnet)",
+      "mimeType": "application/json",
+      "payTo": "0x6137ED1A93c8CFF1a6C3112A14bE04883f58E5F7",
+      "maxTimeoutSeconds": 600,
+      "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+      "extra": {
+        "name": "USD Coin",
+        "version": "2",
+        "decimals": 6,
+        "header": "X-Payment-Tx"
+      }
+    }
+  ]
+}
