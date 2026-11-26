@@ -1,0 +1,32 @@
+{
+  "name": "cleanread-402",
+  "version": "1.0.0",
+  "description": "Universal x402, A2A & Remote MCP Clean Web Reader for AI Agents ($0.05 USDC, Zero API Keys): Converts any URL into token-compressed, LLM-ready Markdown and structured links for Claude, Cursor, LangChain, ElizaOS, and Coinbase AgentKit.",
+  "type": "module",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "test": "node test_x402.mjs"
+  },
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "x402",
+    "a2a",
+    "base",
+    "ai-agents",
+    "markdown",
+    "llm-tools",
+    "coinbase-agentkit",
+    "elizaos"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/meer9374-a11y/cleanread-402.git"
+  },
+  "homepage": "https://cleanread-402.vercel.app",
+  "author": "meer9374-a11y",
+  "license": "MIT",
+  "dependencies": {}
+}
