@@ -1,0 +1,124 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "CleanRead-402 — Universal x402, A2A & Remote MCP Clean Web Reader API",
+    "version": "1.0.0",
+    "description": "Universal x402, A2A & Remote MCP Clean Web Reader for AI Agents ($0.05 USDC, Zero API Keys): Converts any URL into token-compressed, LLM-ready Markdown and structured links.",
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://cleanread-402.vercel.app",
+      "description": "CleanRead-402 Production Node (Base Mainnet)"
+    }
+  ],
+  "paths": {
+    "/api/v1/extract": {
+      "get": {
+        "operationId": "extractCleanMarkdown",
+        "summary": "Convert any webpage URL into clean, token-compressed, LLM-ready Markdown ($0.05 USDC on Base)",
+        "x-payment-required": true,
+        "x-x402": {
+          "network": "base",
+          "chainId": 8453,
+          "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+          "payTo": "0x6137ED1A93c8CFF1a6C3112A14bE04883f58E5F7",
+          "maxAmountRequired": "50000",
+          "priceUsdc": "0.05",
+          "header": "X-Payment-Tx"
+        },
+        "parameters": [
+          {
+            "name": "url",
+            "in": "query",
+            "required": false,
+            "schema": { "type": "string", "format": "uri" },
+            "description": "Target http:// or https:// webpage URL to extract into Markdown."
+          },
+          {
+            "name": "demo",
+            "in": "query",
+            "required": false,
+            "schema": { "type": "boolean" },
+            "description": "Set true for free 600-character preview + token savings stats (edge-cached 60s)."
+          },
+          {
+            "name": "X-Payment-Tx",
+            "in": "header",
+            "required": false,
+            "schema": { "type": "string" },
+            "description": "0x-prefixed Base Mainnet USDC transfer tx hash (>= 50000 base units to 0x6137ED1A93c8CFF1a6C3112A14bE04883f58E5F7 within 600s)."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Clean token-compressed Markdown and structured links",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": ["title", "url", "cleanMarkdown", "originalBytes", "compressedBytes", "estimatedTokensSaved"],
+                  "properties": {
+                    "title": { "type": "string" },
+                    "url": { "type": "string" },
+                    "cleanMarkdown": { "type": "string" },
+                    "originalBytes": { "type": "integer" },
+                    "compressedBytes": { "type": "integer" },
+                    "estimatedTokensSaved": { "type": "integer" },
+                    "compressionRatioPct": { "type": "number" },
+                    "links": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "text": { "type": "string" },
+                          "url": { "type": "string" }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "HTTP 402 Payment Required with standard x402 Base USDC invoice JSON"
+          }
+        }
+      }
+    },
+    "/api/v1/health": {
+      "get": {
+        "operationId": "getHealth",
+        "summary": "Live Base Mainnet RPC latency, block height, and protocol endpoints",
+        "x-payment-required": false,
+        "responses": {
+          "200": { "description": "Node health and Base RPC status" }
+        }
+      }
+    },
+    "/mcp": {
+      "post": {
+        "operationId": "mcpJsonRpc",
+        "summary": "Remote MCP 2024-11-05 JSON-RPC 2.0 endpoint exposing extract_clean_markdown and batch_extract_links",
+        "x-payment-required": true,
+        "responses": {
+          "200": { "description": "JSON-RPC 2.0 MCP response" }
+        }
+      }
+    },
+    "/a2a": {
+      "post": {
+        "operationId": "a2aJsonRpc",
+        "summary": "Google A2A JSON-RPC 2.0 endpoint supporting url-to-markdown and web-reader skills",
+        "x-payment-required": true,
+        "responses": {
+          "200": { "description": "JSON-RPC 2.0 A2A task response" }
+        }
+      }
+    }
+  }
+}
