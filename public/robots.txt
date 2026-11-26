@@ -1,0 +1,45 @@
+# CleanRead-402 — AI Crawler & Agent Discovery Policy
+# Explicitly welcoming all LLM crawlers, MCP registries, A2A routers, and x402 indexers.
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: *
+Allow: /
+
+# AI & Agent Discovery Endpoints
+# LLMs Index: https://cleanread-402.vercel.app/llms.txt
+# Google A2A Agent Card: https://cleanread-402.vercel.app/.well-known/agent.json
+# Remote MCP Manifest: https://cleanread-402.vercel.app/.well-known/mcp.json
+# x402 Payment Manifest: https://cleanread-402.vercel.app/.well-known/x402.json
+# OpenAPI 3.1 Spec: https://cleanread-402.vercel.app/openapi.json
