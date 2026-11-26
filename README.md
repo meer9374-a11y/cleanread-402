@@ -6,6 +6,7 @@ Universal x402, A2A & Remote MCP Clean Web Reader for AI Agents ($0.05 USDC, Zer
 [![Network: Base Mainnet](https://img.shields.io/badge/Base%20L2-USDC%20x402-0052ff.svg)](https://cleanread-402.vercel.app/.well-known/x402.json)
 [![MCP: 2024-11-05](https://img.shields.io/badge/Remote%20MCP-2024--11--05-38bdf8.svg)](https://cleanread-402.vercel.app/mcp)
 [![A2A: Agent Card](https://img.shields.io/badge/Google%20A2A-Agent%20Card-a855f7.svg)](https://cleanread-402.vercel.app/.well-known/agent.json)
+[![Glama MCP Server](https://glama.ai/mcp/servers/meer9374-a11y/cleanread-402/badges/score.svg)](https://glama.ai/mcp/servers/meer9374-a11y/cleanread-402)
 
 ---
 
