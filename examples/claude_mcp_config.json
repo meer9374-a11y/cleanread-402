@@ -1,0 +1,7 @@
+{
+  "mcpServers": {
+    "cleanread-402": {
+      "url": "https://cleanread-402.vercel.app/mcp"
+    }
+  }
+}
