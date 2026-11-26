@@ -1,0 +1,43 @@
+{
+  "name": "CleanRead-402",
+  "description": "Universal x402, A2A & Remote MCP Clean Web Reader for AI Agents ($0.05 USDC, Zero API Keys): Converts any URL into token-compressed, LLM-ready Markdown and structured links for Claude, Cursor, LangChain, ElizaOS, and Coinbase AgentKit.",
+  "url": "https://cleanread-402.vercel.app/a2a",
+  "documentationUrl": "https://cleanread-402.vercel.app/llms.txt",
+  "version": "1.0.0",
+  "provider": {
+    "organization": "CleanRead-402 (meer9374-a11y)",
+    "url": "https://github.com/meer9374-a11y/cleanread-402"
+  },
+  "capabilities": {
+    "streaming": false,
+    "pushNotifications": false,
+    "stateTransitionHistory": false
+  },
+  "authentication": {
+    "schemes": ["x402"],
+    "credentials": "Base Mainnet USDC (0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913) 0.05 USDC (50000 base units) to 0x6137ED1A93c8CFF1a6C3112A14bE04883f58E5F7 via X-Payment-Tx header; free preview via demo=true"
+  },
+  "defaultInputModes": ["text/plain", "application/json"],
+  "defaultOutputModes": ["text/markdown", "application/json"],
+  "skills": [
+    {
+      "id": "url-to-markdown",
+      "name": "URL to Token-Compressed Markdown",
+      "description": "Strips scripts, styles, navbars, footers, ads, and DOM noise from any URL and outputs clean, LLM-ready Markdown with token savings metrics.",
+      "tags": ["url-to-markdown", "markdown", "compression", "x402", "mcp", "llm-tools"],
+      "examples": [
+        "Convert https://modelcontextprotocol.io/introduction into clean Markdown (demo)",
+        "Extract full LLM-ready Markdown from https://base.org with X-Payment-Tx"
+      ]
+    },
+    {
+      "id": "web-reader",
+      "name": "Clean Agentic Web Reader & Link Extractor",
+      "description": "Reads live web pages with browser-grade headers and extracts structured links, headings, tables, and fenced code blocks without API keys.",
+      "tags": ["web-reader", "scraper", "links", "ai-agents", "base", "a2a"],
+      "examples": [
+        "Read https://ethereum.org and return structured links and clean summary"
+      ]
+    }
+  ]
+}
