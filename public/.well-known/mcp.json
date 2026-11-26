@@ -1,0 +1,34 @@
+{
+  "name": "cleanread-402",
+  "displayName": "CleanRead-402",
+  "version": "1.0.0",
+  "description": "Universal x402, A2A & Remote MCP Clean Web Reader for AI Agents ($0.05 USDC, Zero API Keys): Converts any URL into token-compressed, LLM-ready Markdown and structured links for Claude, Cursor, LangChain, ElizaOS, and Coinbase AgentKit.",
+  "protocolVersion": "2024-11-05",
+  "transport": "streamable-http",
+  "endpoint": "https://cleanread-402.vercel.app/mcp",
+  "repository": "https://github.com/meer9374-a11y/cleanread-402",
+  "license": "MIT",
+  "authentication": {
+    "type": "x402",
+    "network": "base",
+    "chainId": 8453,
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "payTo": "0x6137ED1A93c8CFF1a6C3112A14bE04883f58E5F7",
+    "maxAmountRequired": "50000",
+    "priceUsdc": "0.05",
+    "header": "X-Payment-Tx",
+    "freeDemoSupported": true
+  },
+  "tools": [
+    {
+      "name": "extract_clean_markdown",
+      "priceUsdc": "0.05",
+      "description": "Convert any webpage URL into clean, token-compressed, LLM-ready Markdown with ads/boilerplate stripped (pass demo:true for free 600-char preview)."
+    },
+    {
+      "name": "batch_extract_links",
+      "priceUsdc": "0.05",
+      "description": "Extract clean, deduplicated absolute links and token compression telemetry from 1 to 3 webpage URLs."
+    }
+  ]
+}
